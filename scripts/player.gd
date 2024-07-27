@@ -33,7 +33,7 @@ func shoot():
 	can_shoot = false
 	$ShootingTimer.start()
 	
-    # Pas trouvé mieux que de l'instancier deux fois... :/
+	# Pas trouvé mieux que de l'instancier deux fois... :/
 	var bullet_instance = bullet.instantiate()
 	get_tree().current_scene.add_child(bullet_instance)
 	bullet_instance.position = up_spawn.global_position

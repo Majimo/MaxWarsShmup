@@ -5,7 +5,7 @@ extends Area2D
 
 
 func _physics_process(_delta):
-	position.x += speed * get_physics_process_delta_time()
+	position.x -= speed * get_physics_process_delta_time()
 	
 	if global_position.x > (2 * get_viewport().size.y):
 		queue_free()
