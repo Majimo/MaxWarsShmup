@@ -5,6 +5,7 @@ var bullet = preload("res://scenes/player_bullet.tscn")
 
 @export var speed := 400
 @export var sprite_half_size := 64
+@export var health := 6	# On double les points de vie du joueur pour être sûr qu'il perde "une vie" quand il se fait toucher par les 2 tirs
 
 @onready var up_spawn = $SpawnUp
 @onready var down_spawn = $SpawnDown
@@ -41,3 +42,10 @@ func shoot():
 	var bullet_instance2 = bullet.instantiate()
 	get_tree().current_scene.add_child(bullet_instance2)
 	bullet_instance2.position = down_spawn.global_position
+
+func player_hit():
+	health -= 1
+	Globals.health = int(health / 2)
+	if health <= 0:
+		queue_free()
+		print('player dead')

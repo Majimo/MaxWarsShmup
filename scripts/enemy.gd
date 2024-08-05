@@ -3,6 +3,7 @@ extends CharacterBody2D
 var bullet = preload("res://scenes/enemy_bullet.tscn")
 
 @export var speed := 400
+@export var health := 4
 
 @onready var up_spawn = $SpawnUp
 @onready var down_spawn = $SpwanDown
@@ -13,8 +14,11 @@ var player = null
 
 func _physics_process(delta):
 	var movement = Vector2(-2, 0)
-	if player:
+	if is_instance_valid(player):
 		movement = position.direction_to(player.position)
+	else:
+		player = null
+		movement = Vector2(-2, 0)
 	
 	movement = movement.normalized() * speed
 	move_and_collide(movement * delta)
@@ -24,6 +28,11 @@ func _on_detection_area_body_entered(body):
 	if body.is_in_group("Player"):
 		player = body
 
+func _on_collision_area_body_entered(body):
+	if body.has_method("player_hit"):
+		print("collision avec le player")
+		body.player_hit()
+
 func _on_shooting_timer_timeout():
 	can_shoot = true
 	if player != null:
@@ -31,7 +40,6 @@ func _on_shooting_timer_timeout():
 
 
 func shoot():
-	print('shoot', can_shoot)
 	if can_shoot:
 		# Pas trouvé mieux que de l'instancier deux fois... :/
 		var bullet_instance = bullet.instantiate()
@@ -44,4 +52,10 @@ func shoot():
 		
 		$ShootingTimer.start()
 		can_shoot = false
-		print('shoot in loop', can_shoot)
+
+func enemy_hit():
+	health -=1
+	if health <= 0:
+		Globals.score += 5
+		queue_free()
+		print('enemy dead')

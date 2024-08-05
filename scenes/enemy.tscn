@@ -1,10 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1tc5b8cr221q"]
+[gd_scene load_steps=6 format=3 uid="uid://c1tc5b8cr221q"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_5ys01"]
 [ext_resource type="Texture2D" uid="uid://cur0ikfwvq33r" path="res://icon.svg" id="1_7xf38"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3haq6"]
+size = Vector2(139.394, 136)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fqk14"]
-size = Vector2(118, 118)
+size = Vector2(121.212, 124)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wrk0e"]
 radius = 908.798
@@ -17,12 +20,19 @@ script = ExtResource("1_5ys01")
 modulate = Color(1, 0.05, 0.05, 1)
 texture = ExtResource("1_7xf38")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionArea" type="Area2D" parent="."]
+
+[node name="CollisionAreaShape2D" type="CollisionShape2D" parent="CollisionArea"]
+shape = SubResource("RectangleShape2D_3haq6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1.8062e-06, 0)
 shape = SubResource("RectangleShape2D_fqk14")
 
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(15.1515, 8)
 scale = Vector2(1.5, 1)
 shape = SubResource("CircleShape2D_wrk0e")
 
@@ -33,8 +43,9 @@ position = Vector2(-60, -32)
 position = Vector2(-60, 32)
 
 [node name="ShootingTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.6
 autostart = true
 
+[connection signal="body_entered" from="CollisionArea" to="." method="_on_collision_area_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="timeout" from="ShootingTimer" to="." method="_on_shooting_timer_timeout"]

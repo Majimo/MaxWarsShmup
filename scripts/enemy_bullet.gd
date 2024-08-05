@@ -9,3 +9,9 @@ func _physics_process(_delta):
 	
 	if global_position.x > (2 * get_viewport().size.y):
 		queue_free()
+
+
+func _on_body_entered(body):
+	if body.has_method("player_hit"):
+		body.player_hit()
+		queue_free()
