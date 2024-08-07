@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://fmss4esp6ey7"]
+
+[ext_resource type="Texture2D" uid="uid://bgfgwydd4n21b" path="res://assets/background.png" id="1_47py6"]
+[ext_resource type="Script" path="res://scripts/home_screen.gd" id="1_418e1"]
+[ext_resource type="Texture2D" uid="uid://shtxn2dea8k1" path="res://assets/Max Wars Logo.jpg" id="2_o5e25"]
+[ext_resource type="FontFile" uid="uid://be6u47cq3y7yw" path="res://Starjedi.ttf" id="3_dsvjm"]
+[ext_resource type="Texture2D" uid="uid://ubfoggavtmwd" path="res://assets/x_wing_selector.png" id="3_ts85o"]
+
+[node name="HomeScreen" type="Node2D"]
+script = ExtResource("1_418e1")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(4.42308, 0.643333)
+texture = ExtResource("1_47py6")
+centered = false
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1147.0
+offset_bottom = 650.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 85.0
+offset_right = 1.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Menu/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(1147, 250)
+layout_mode = 2
+
+[node name="Logo" type="Sprite2D" parent="Menu/VBoxContainer/Control"]
+position = Vector2(573, 135)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_o5e25")
+
+[node name="NewGameContainer" type="HBoxContainer" parent="Menu/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SelectorNG" type="Sprite2D" parent="Menu/VBoxContainer/NewGameContainer"]
+position = Vector2(376, 48)
+texture = ExtResource("3_ts85o")
+
+[node name="NewGame" type="Label" parent="Menu/VBoxContainer/NewGameContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.729412, 0.372549, 0.141176, 1)
+theme_override_colors/font_shadow_color = Color(0.694118, 0.694118, 0.694118, 1)
+theme_override_fonts/font = ExtResource("3_dsvjm")
+theme_override_font_sizes/font_size = 50
+text = "New Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScoresContainer" type="HBoxContainer" parent="Menu/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SelectorHS" type="Sprite2D" parent="Menu/VBoxContainer/HighScoresContainer"]
+position = Vector2(331, 48)
+texture = ExtResource("3_ts85o")
+
+[node name="HighScores" type="Label" parent="Menu/VBoxContainer/HighScoresContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.694118, 0.694118, 0.694118, 1)
+theme_override_fonts/font = ExtResource("3_dsvjm")
+theme_override_font_sizes/font_size = 50
+text = "High Scores"
+horizontal_alignment = 1
+vertical_alignment = 1

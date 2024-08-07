@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://x0ta6ryhiw0i"]
+[gd_scene load_steps=9 format=3 uid="uid://x0ta6ryhiw0i"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_18fgy"]
 [ext_resource type="PackedScene" uid="uid://c5e7n3nn8kblp" path="res://scenes/player.tscn" id="1_iyjmw"]
@@ -7,9 +7,24 @@
 [ext_resource type="FontFile" uid="uid://be6u47cq3y7yw" path="res://Starjedi.ttf" id="5_430wb"]
 [ext_resource type="Script" path="res://scripts/hp_label.gd" id="6_8jpmi"]
 [ext_resource type="Script" path="res://scripts/score_label.gd" id="7_bhehx"]
+[ext_resource type="Texture2D" uid="uid://bgfgwydd4n21b" path="res://assets/background.png" id="8_gp1hy"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_18fgy")
+metadata/_edit_vertical_guides_ = []
+
+[node name="ParallaxBackground" type="Node2D" parent="."]
+
+[node name="First" type="Sprite2D" parent="ParallaxBackground"]
+scale = Vector2(5, 0.6)
+texture = ExtResource("8_gp1hy")
+centered = false
+
+[node name="Second" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(1300, 2.08165e-12)
+scale = Vector2(5, 0.6)
+texture = ExtResource("8_gp1hy")
+centered = false
 
 [node name="Player" parent="." instance=ExtResource("1_iyjmw")]
 position = Vector2(91, 330)
