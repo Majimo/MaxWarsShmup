@@ -3,14 +3,29 @@ extends CharacterBody2D
 var bullet = preload("res://scenes/enemy_bullet.tscn")
 
 @export var speed := 400
-@export var health := 4
+@export var health := 2
 
 @onready var up_spawn = $SpawnUp
 @onready var down_spawn = $SpwanDown
 
 var can_shoot := true
 var player = null
+var sounds = [
+	"res://sounds/tie_fighter/tie00.mp3",
+	"res://sounds/tie_fighter/tie01.mp3",
+	"res://sounds/tie_fighter/tie02.mp3",
+	"res://sounds/tie_fighter/tie03.mp3"
+]
 
+
+func _ready():
+	var enemy = AudioStreamPlayer2D.new()
+	add_child(enemy)
+	
+	var sound_idx = randi_range(0, 3)
+	enemy.stream = load(sounds[sound_idx])
+	enemy.set_volume_db(-2)
+	enemy.play()
 
 func _physics_process(delta):
 	var movement = Vector2(-2, 0)
@@ -57,5 +72,18 @@ func enemy_hit():
 	health -=1
 	if health <= 0:
 		Globals.score += 5
+		print("boom")
 		queue_free()
-		print('enemy dead')
+		
+#		Ca marche pas pour le moment :'(
+#		$CollisionArea/CollisionAreaShape2D.disabled = true
+#		$CollisionShape2D2.disabled = true
+#		$Sprite2D.visible = false
+#
+#		var explosion = $AnimatedSprite2D
+#		explosion.visible = true
+#		explosion.play("explode")
+#		print(explosion.get_frame() == 3)
+#		if explosion.get_frame() == 3:
+#			print("boom")
+#			queue_free()

@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjrfx5reeruqi"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_cutw5"]
+[ext_resource type="Texture2D" uid="uid://cfwqfms11a58" path="res://assets/game_over.png" id="1_xyedu"]
+[ext_resource type="FontFile" uid="uid://be6u47cq3y7yw" path="res://Starjedi.ttf" id="2_ro6qn"]
+[ext_resource type="AudioStream" uid="uid://dv1kb2nkpmne0" path="res://sounds/imperial_march.ogg" id="4_yy3a2"]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_cutw5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
+scale = Vector2(2.75, 2.75)
+texture = ExtResource("1_xyedu")
+centered = false
+
+[node name="GameOverLabel" type="Label" parent="."]
+offset_left = 393.0
+offset_top = 470.0
+offset_right = 792.0
+offset_bottom = 573.0
+theme_override_fonts/font = ExtResource("2_ro6qn")
+theme_override_font_sizes/font_size = 62
+text = "game over"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_yy3a2")
+autoplay = true
+
+[node name="WaitToSeeScreen" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="ScoreContainer" type="HBoxContainer" parent="."]
+offset_left = 271.0
+offset_top = 231.0
+offset_right = 565.0
+offset_bottom = 317.0
+
+[node name="ScoreTitle" type="Label" parent="ScoreContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ro6qn")
+theme_override_font_sizes/font_size = 42
+text = "score : "
+
+[node name="ScoreLabel" type="Label" parent="ScoreContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ro6qn")
+theme_override_font_sizes/font_size = 42
+text = "0"
+
+[connection signal="timeout" from="WaitToSeeScreen" to="." method="_on_wait_to_see_screen_timeout"]

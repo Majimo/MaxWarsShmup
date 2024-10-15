@@ -9,6 +9,7 @@ var bullet = preload("res://scenes/player_bullet.tscn")
 
 @onready var up_spawn = $SpawnUp
 @onready var down_spawn = $SpawnDown
+@onready var shoot_sound = $ShootSound
 
 var can_shoot := true
 
@@ -32,6 +33,7 @@ func _on_shooting_timer_timeout():
 
 func shoot():
 	can_shoot = false
+	shoot_sound.play()
 	$ShootingTimer.start()
 	
 	# Pas trouvé mieux que de l'instancier deux fois... :/
@@ -45,7 +47,10 @@ func shoot():
 
 func player_hit():
 	health -= 1
+	@warning_ignore("integer_division")
 	Globals.health = int(health / 2)
 	if health <= 0:
 		queue_free()
-		print('player dead')
+		
+		var game_over = "res://scenes/game_over.tscn"
+		get_tree().change_scene_to_file(game_over)

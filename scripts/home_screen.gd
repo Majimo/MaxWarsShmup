@@ -13,10 +13,17 @@ func _ready():
 	set_state(menu_states[0])
 
 func _process(_delta):
+	var player = AudioStreamPlayer.new()
+	add_child(player)
+	player.stream = load("res://sounds/power-up-lightsaber.ogg")
+	player.set_volume_db(-10)
+	
 	if Input.is_action_just_pressed("ui_down"):
 		set_state(menu_states[1])
+		player.play()
 	elif Input.is_action_just_pressed("ui_up"):
 		set_state(menu_states[0])
+		player.play()
 	
 	elif Input.is_action_just_pressed("ui_accept"):
 		if menu_state == menu_states[0]:

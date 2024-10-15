@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://x0ta6ryhiw0i"]
+[gd_scene load_steps=8 format=3 uid="uid://x0ta6ryhiw0i"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_18fgy"]
 [ext_resource type="PackedScene" uid="uid://c5e7n3nn8kblp" path="res://scenes/player.tscn" id="1_iyjmw"]
-[ext_resource type="PackedScene" uid="uid://c1tc5b8cr221q" path="res://scenes/enemy.tscn" id="2_tqmsx"]
 [ext_resource type="Script" path="res://scripts/enemy-spawn-timer.gd" id="4_qdsko"]
 [ext_resource type="FontFile" uid="uid://be6u47cq3y7yw" path="res://Starjedi.ttf" id="5_430wb"]
 [ext_resource type="Script" path="res://scripts/hp_label.gd" id="6_8jpmi"]
@@ -29,9 +28,6 @@ centered = false
 [node name="Player" parent="." instance=ExtResource("1_iyjmw")]
 position = Vector2(91, 330)
 speed = 400
-
-[node name="Enemy" parent="." instance=ExtResource("2_tqmsx")]
-position = Vector2(1065, 451)
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 autostart = true
