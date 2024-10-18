@@ -29,16 +29,27 @@ func _process(_delta):
 		if menu_state == menu_states[0]:
 			change_scene_to_next()
 		if menu_state == menu_states[1]:
-			print('high score')
+			change_scene_to_high_scores()
+
+	elif Input.is_action_just_pressed("ui_cancel"):
+		get_tree().quit()
 
 
 func change_scene_to_next():
 	var launch_game = "res://scenes/main.tscn"
-	var error = get_tree().change_scene_to_file(launch_game)
+	var scene = get_tree().change_scene_to_file(launch_game)
 	
 	# Vérifiez si le changement de scène s'est bien passé
-	if error != OK:
-		print("Erreur lors du changement de scène: ", error)
+	if scene != OK:
+		print("Erreur lors du changement de scène: ", scene)
+		
+func change_scene_to_high_scores():
+	var high_scores = "res://scenes/high_scores.tscn"
+	var scene = get_tree().change_scene_to_file(high_scores)
+	
+	# Vérifiez si le changement de scène s'est bien passé
+	if scene != OK:
+		print("Erreur lors du changement de scène: ", scene)
 
 func set_state(state: String):
 	menu_state = state

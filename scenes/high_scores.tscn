@@ -1,6 +1,87 @@
-[gd_scene load_steps=2 format=3 uid="uid://ds3i1vudu64kh"]
+[gd_scene load_steps=4 format=3 uid="uid://ds3i1vudu64kh"]
 
 [ext_resource type="Script" path="res://scripts/high_scores.gd" id="1_q8cx1"]
+[ext_resource type="FontFile" uid="uid://be6u47cq3y7yw" path="res://Starjedi.ttf" id="2_7auph"]
+[ext_resource type="Texture2D" uid="uid://bgfgwydd4n21b" path="res://assets/background.png" id="2_vax4u"]
 
 [node name="HighScores" type="Node2D"]
 script = ExtResource("1_q8cx1")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(4.42308, 0.643333)
+texture = ExtResource("2_vax4u")
+centered = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 1154.0
+offset_bottom = 645.0
+alignment = 1
+
+[node name="HighScores" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.772549, 0, 1)
+theme_override_fonts/font = ExtResource("2_7auph")
+theme_override_font_sizes/font_size = 50
+text = "High Scores"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="FisrContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="FirstLabel" type="Label" parent="VBoxContainer/VBoxContainer/FisrContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.592157, 0.227451, 1)
+theme_override_fonts/font = ExtResource("2_7auph")
+theme_override_font_sizes/font_size = 40
+text = "ABC"
+
+[node name="FirstScore" type="Label" parent="VBoxContainer/VBoxContainer/FisrContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.592157, 0.227451, 1)
+theme_override_fonts/font = ExtResource("2_7auph")
+theme_override_font_sizes/font_size = 40
+text = "100
+"
+
+[node name="SecondContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SecondLabel" type="Label" parent="VBoxContainer/VBoxContainer/SecondContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.592157, 0.227451, 1)
+theme_override_fonts/font = ExtResource("2_7auph")
+theme_override_font_sizes/font_size = 40
+text = "ABC"
+
+[node name="SecondScore" type="Label" parent="VBoxContainer/VBoxContainer/SecondContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.592157, 0.227451, 1)
+theme_override_fonts/font = ExtResource("2_7auph")
+theme_override_font_sizes/font_size = 40
+text = "100
+"
+
+[node name="ThirdContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ThirdLabel" type="Label" parent="VBoxContainer/VBoxContainer/ThirdContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.592157, 0.227451, 1)
+theme_override_fonts/font = ExtResource("2_7auph")
+theme_override_font_sizes/font_size = 40
+text = "ABC"
+
+[node name="ThirdScore" type="Label" parent="VBoxContainer/VBoxContainer/ThirdContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.592157, 0.227451, 1)
+theme_override_fonts/font = ExtResource("2_7auph")
+theme_override_font_sizes/font_size = 40
+text = "100
+"
