@@ -1,0 +1,157 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3new5r62wwcq"]
+
+[ext_resource type="Script" path="res://scripts/high_score_marker.gd" id="1_vdsa5"]
+[ext_resource type="Texture2D" uid="uid://bgfgwydd4n21b" path="res://assets/background.png" id="2_cv8wp"]
+[ext_resource type="FontFile" uid="uid://be6u47cq3y7yw" path="res://Starjedi.ttf" id="3_courd"]
+
+[node name="HighScoreMarker" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vdsa5")
+metadata/_edit_vertical_guides_ = [6.0]
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(4.42308, 0.643333)
+texture = ExtResource("2_cv8wp")
+centered = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -17.0
+offset_right = 20.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="First" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Before" type="Label" parent="HBoxContainer/VBoxContainer/First"]
+layout_mode = 0
+offset_left = -20.0
+offset_right = 9.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+theme_override_font_sizes/font_size = 50
+text = ">"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FirstLetter" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_courd")
+theme_override_font_sizes/font_size = 50
+text = "A "
+
+[node name="First1" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="After" type="Label" parent="HBoxContainer/VBoxContainer/First1"]
+layout_mode = 0
+offset_left = 55.0
+offset_right = 84.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+theme_override_font_sizes/font_size = 50
+text = ">"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Second" type="Control" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Before" type="Label" parent="HBoxContainer/VBoxContainer2/Second"]
+layout_mode = 0
+offset_left = -20.0
+offset_right = 9.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+theme_override_font_sizes/font_size = 50
+text = ">"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SecondLetter" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_courd")
+theme_override_font_sizes/font_size = 50
+text = "A "
+
+[node name="Second2" type="Control" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="After" type="Label" parent="HBoxContainer/VBoxContainer2/Second2"]
+layout_mode = 0
+offset_left = 55.0
+offset_right = 84.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+theme_override_font_sizes/font_size = 50
+text = ">"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Third" type="Control" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Before" type="Label" parent="HBoxContainer/VBoxContainer3/Third"]
+layout_mode = 0
+offset_left = -20.0
+offset_right = 9.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+theme_override_font_sizes/font_size = 50
+text = ">"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ThirdLetter" type="Label" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_courd")
+theme_override_font_sizes/font_size = 50
+text = "A "
+
+[node name="Third1" type="Control" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="After" type="Label" parent="HBoxContainer/VBoxContainer3/Third1"]
+layout_mode = 0
+offset_left = 55.0
+offset_right = 84.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+theme_override_font_sizes/font_size = 50
+text = ">"
+horizontal_alignment = 1
+vertical_alignment = 1
