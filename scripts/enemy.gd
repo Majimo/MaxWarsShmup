@@ -3,7 +3,7 @@ extends CharacterBody2D
 var bullet = preload("res://scenes/enemy_bullet.tscn")
 
 @export var speed := 400
-@export var health := 2
+@export var health := 1
 
 @onready var up_spawn = $SpawnUp
 @onready var down_spawn = $SpwanDown
