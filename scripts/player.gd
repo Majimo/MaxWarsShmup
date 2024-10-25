@@ -57,22 +57,14 @@ func player_hit():
 func _check_score():
 	var high_scores = Globals.load_scores()
 	var game_over = "res://scenes/game_over.tscn"
+	var high_score_marker = "res://scenes/high_score_marker.tscn"
 
 	if typeof(high_scores) == TYPE_DICTIONARY:
-		var score_to_update = true
 		for i in high_scores.scores.size():
-			if score_to_update and Globals.score > high_scores.scores[i].score:
-				var new_score = Globals.score
-				var new_name = "ZOB"
-				high_scores.scores[i].score = new_score
-				high_scores.scores[i].name = new_name
-				score_to_update = false
-				break
-		high_scores.scores.sort_custom(_compare_scores)
-		Globals.update_score(high_scores)
+			if Globals.score > high_scores.scores[i].score:
+				print('new high score', Globals.score)
+				get_tree().change_scene_to_file(high_score_marker)
+				return
 		get_tree().change_scene_to_file(game_over)
 	else:
 		get_tree().change_scene_to_file(game_over)
-
-func _compare_scores(a: Dictionary, b: Dictionary) -> int:
-	return a["score"] < b["score"]
