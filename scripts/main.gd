@@ -11,7 +11,6 @@ var enemy = preload("res://scenes/enemy.tscn")
 func _ready():
 	var enemy_instance = enemy.instantiate()
 	enemy_instance.global_position = Vector2(1252, randi_range(100, 548))
-	print(enemy_instance.global_position)
 	get_tree().current_scene.add_child(enemy_instance)
 
 func _process(delta):
@@ -26,5 +25,4 @@ func _process(delta):
 func _on_enemy_spawn_timer_timeout():
 	var enemy_instance = enemy.instantiate()
 	enemy_instance.global_position = Vector2(1252, randi_range(100, 548))
-	print(enemy_instance.global_position)
 	get_tree().current_scene.add_child(enemy_instance)

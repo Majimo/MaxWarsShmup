@@ -10,6 +10,7 @@ var menu_states := ['NEW_GAME', 'HIGH_SCORES']
 var menu_state := 'NEW_GAME'
 
 func _ready():
+	# Globals.save_initial_scores()
 	set_state(menu_states[0])
 
 func _process(_delta):
