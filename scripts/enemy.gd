@@ -72,7 +72,6 @@ func enemy_hit():
 	health -=1
 	if health <= 0:
 		Globals.score += 5
-		print("boom")
 		queue_free()
 		
 #		Ca marche pas pour le moment :'(
